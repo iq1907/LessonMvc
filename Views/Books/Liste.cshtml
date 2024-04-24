@@ -1,0 +1,69 @@
+﻿@* @model IEnumerable<LessonMvc.Models.Book> *@
+
+@{
+    var books = (List<LessonMvc.Models.Book>) ViewData["books"];
+
+    ViewData["Title"] = "Books liste";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Books Liste</h1>
+
+</div>
+
+@*
+<table class="table">
+<tr>
+<th>@Html.DisplayNameFor(model => model.Baslik)</th>
+<th>@Html.DisplayNameFor(model => model.Aciklama)</th>
+<th>@Html.DisplayNameFor(model => model.Tur)</th>
+<th>@Html.DisplayNameFor(model => model.Fiyat)</th>
+</tr>
+@foreach (var item in Model)
+{
+<tr>
+<th>@Html.DisplayFor(model => item.Baslik)</th>
+<th>@Html.DisplayFor(model => model.Aciklama)</th>
+<th>@Html.DisplayFor(model => model.Tur)</th>
+<th>@Html.DisplayFor(model => model.Fiyat)</th>
+</tr>
+}
+</table>
+*@
+
+@{
+
+    <table class="table">
+        <tr>
+            <th>Baslik</th>
+            <th>Açıklama</th>
+            <th>Tur</th>
+            <th>Fiyat</th>
+        </tr>
+
+        @foreach (var item in books)
+        {
+
+            <tr>
+                <th>@item.Baslik</th>
+                <th>@item.Aciklama</th>
+                <th>@item.Tur</th>
+                <th>@item.Fiyat</th>
+            </tr>
+
+        }
+
+    </table>
+
+}
+
+
+@* @{
+
+for (int i = 0; i < @ViewBag.StokAdet; i++)
+{
+@ViewBag.UrunIsmi;
+<br>;
+}
+}
+*@

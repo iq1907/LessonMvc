@@ -1,0 +1,8 @@
+﻿@model IEnumerable<LessonMvc.Models.Book>; 
+
+@{
+
+    ViewData["Title"] = "Books Model liste";
+}
+
+@Html.Partial("BookList",@Model)

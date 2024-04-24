@@ -1,0 +1,71 @@
+﻿using LessonMvc.Models;
+
+@{
+    ViewData["Title"] = "Books Index";
+}
+
+@{
+
+    List<Book> books = new List<Book>(){
+
+new Book(){
+Id = 1,
+Baslik = "Elma Dunyası",
+Aciklama = "Elma Dunyasi hakkında herşey",
+BasimTarih = DateTime.Now,Fiyat
+=100,StokAdet = 10,Tur = "Roman"
+},
+
+new Book(){
+Id = 2,
+Baslik = "Armut Dunyası",
+Aciklama = "Armut Dunyasi hakkında herşey",
+BasimTarih = DateTime.Now,
+Fiyat = 200,
+StokAdet = 0,
+Tur = "Roman"
+}
+
+};
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Books Index</h1>
+</div>
+
+@*Burasına yorum yapıyoyorum*@
+@foreach (var book in books)
+{
+
+    <h3 id="description"><a class="anchorjs-link " href="#description" aria-label="Anchor link for: description"
+        data-anchorjs-icon=""
+        style="font-style: normal; font-variant-caps: normal; font-weight: normal; font-stretch: normal; font-size: 1em; line-height: inherit; font-family: anchorjs-icons; font-size-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-position: normal; font-variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; font-variation-settings: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;">
+    </a>
+    @book.Baslik
+</h3>
+    @*yorummmmmm*@
+    <div class="bs-example" data-example-id="simple-dl">
+    <dl>
+        <dt>Kitap Türü:</dt>
+        <dd>@book.Tur</dd>
+        <dt>Basım Tarihi:</dt>
+        <dd>@book.BasimTarih</dd>
+        <dt>Açıklama :</dt>
+        <dd>@book.Aciklama</dd>
+        <dt>Stok Durumu :</dt>
+        <dd>
+            @if (book.StokAdet > 0)
+                {
+                    @:Stokta Mevcut
+                }
+                else
+                {
+                    <text>Stok Yok</text>
+                }
+
+            </dd>
+
+        </dl>
+    </div>
+}

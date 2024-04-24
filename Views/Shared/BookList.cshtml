@@ -1,0 +1,37 @@
+@model IEnumerable<LessonMvc.Models.Book>
+
+<div class="text-center">
+    <h1 class="display-4">Books Model Liste</h1>
+</div>
+
+<p>
+    @Html.ActionLink("Create New","Create");
+
+    <a href="@Url.Action("Create")">
+        Create
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(x => x.Baslik)</th>
+        <th>@Html.DisplayNameFor(x => x.Aciklama)</th>
+        <th>@Html.DisplayNameFor(x => x.Tur)</th>
+        <th>@Html.DisplayNameFor(x => x.Fiyat)</th>
+        <th>@Html.DisplayNameFor(x => x.BasimTarih)</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        
+        <tr>
+            <th>@Html.DisplayFor(x => item.Baslik)</th>
+            <th>@Html.DisplayFor(x => item.Aciklama)</th>
+            <th>@Html.DisplayFor(x => item.Tur)</th>
+            <th>@Html.DisplayFor(x => item.Fiyat)</th>
+            <th>@Html.DisplayFor(x => item.BasimTarih)</th>
+            <th>@Html.ActionLink("Edit","Edit", new {id=item.Id})</th>
+            <th>@Html.ActionLink("Details","Details", new {id=item.Id})</th>
+            <th>@Html.ActionLink("Delete","Delete", new {id=item.Id})</th>
+
+        </tr>
+    }
+</table>

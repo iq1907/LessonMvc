@@ -1,0 +1,48 @@
+﻿@model LessonMvc.Models.Book
+
+@{
+    //var book = (LessonMvc.Models.Book) ViewData["book"];
+    ViewData["Title"] = "Kitap Detay";
+    var book = Model;
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Detay</h1>
+</div>
+
+<p>
+    @Html.ActionLink("Book List", "ListeModel")
+</p>
+
+
+<h3 id="description">
+    <a class="anchorjs-link " href="#description" aria-label="Anchor link for: description" data-anchorjs-icon=""
+        style="font-style: normal; font-variant-caps: normal; font-weight: normal; font-stretch: normal; font-size: 1em; line-height: inherit; font-family: anchorjs-icons; font-size-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-position: normal; font-variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; font-variation-settings: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;">
+    </a>
+    @book.Baslik
+</h3>
+@*yorummmmmm*@
+<div class="bs-example" data-example-id="simple-dl">
+    <dl>
+        <dt>@Html.DisplayNameFor(m => m.Aciklama) :</dt>
+        <dd>@book.Aciklama</dd>
+        <dt>@Html.DisplayNameFor(m => m.BasimTarih) :</dt>
+        <dd>@book.BasimTarih</dd>
+        <dt>@Html.DisplayNameFor(m => m.Fiyat)</dt>
+        <dd>@book.Fiyat</dd>
+        <dt>@Html.DisplayNameFor(m => m.StokAdet) :</dt>
+        <dd>
+            @if (book.StokAdet > 0)
+            {
+                @:Stokta Mevcut
+            }
+            else
+            {
+                <text>Stok Yok</text>
+            }
+
+        </dd>
+
+    </dl>
+</div>
